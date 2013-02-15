@@ -1,0 +1,80 @@
+@(title: String)(content: Html)
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+        <title>@title</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="shortcut icon" href="@routes.Assets.at("images/favicon.ico")">
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/font-awesome.min.css")">
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/main.css")">
+
+        <script src="@routes.Assets.at("javascripts/modernizr.js")"></script>
+    </head>
+    <body>
+
+        <div class="navbar navbar-fixed-top" data-role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">
+                        <img src="@routes.Assets.at("images/logo-sm.png")" alt=""/>
+                    </a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a data-ng-href="#/setting"><i class="fa fa-gear"></i> Setting</a></li>
+                        <li>
+                            <form action="@routes.Access.logout()" method="post">
+                                <button type="submit" class="btn logout-btn">
+                                    <i class="fa fa-lock"></i> Logout
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3 col-md-2 sidebar" data-detect-active-link>
+
+                    <form class="form">
+                        <input type="text" class="form-control" placeholder="Search...">
+                    </form>
+
+                    <br/>
+
+                    <ul class="nav nav-sidebar">
+                        <li><a data-ng-href="#/"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                        <li><a data-ng-href="#/warehouse"><i class="fa fa-inbox"></i> Warehouse</a></li>
+                        <li><a data-ng-href="#/stock"><i class="fa fa-tasks"></i> Stock</a></li>
+                        <li><a data-ng-href="#/outlet"><i class="fa fa-sitemap"></i> Outlet</a></li>
+                        <li><a data-ng-href="#/menu"><i class="fa fa-cutlery"></i> Menu</a></li>
+                        <li><a data-ng-href="#/user"><i class="fa fa-group"></i> User</a></li>
+                        <li><a data-ng-href="#/report"><i class="fa fa-bar-chart-o"></i> Report</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                    @content
+                </div>
+            </div>
+        </div>
+
+        <script src="@routes.Assets.at("javascripts/jquery.min.js")"></script>
+        <script src="@routes.Assets.at("javascripts/bootstrap.min.js")"></script>
+
+    </body>
+</html>
